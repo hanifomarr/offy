@@ -1,0 +1,23 @@
+@use "./responsive.scss" as screen;
+
+.layout {
+  height: 100vh;
+  max-width: 1366px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include screen.lg {
+    background-color: blue;
+    max-width: 1280px;
+  }
+  @include screen.md {
+    background-color: green;
+    max-width: 768px;
+  }
+  @include screen.sm {
+    background-color: red;
+    max-width: 640px;
+  }
+}
