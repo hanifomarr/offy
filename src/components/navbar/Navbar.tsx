@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 import { Building2, Menu } from "lucide-react";
 import "./navbar.scss";
-import { useState } from "react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

@@ -49,7 +49,7 @@ nav {
     align-items: center;
     justify-content: flex-end;
     height: 100%;
-    background-color: aqua;
+    background-color: #ff7625;
 
     @include screen.md {
       background-color: transparent;
@@ -61,7 +61,8 @@ nav {
     }
 
     .register {
-      background-color: yellowgreen;
+      background-color: black;
+      color: white;
     }
 
     .menu-icon {
