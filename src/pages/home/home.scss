@@ -1,3 +1,5 @@
+@use "../../responsive" as screen;
+
 .home {
   display: flex;
   height: 100%;
@@ -13,16 +15,36 @@
       gap: 30px;
       height: 100%;
 
+      @include screen.sm {
+        justify-content: flex-start;
+      }
+
+      @include screen.md {
+        padding: 0;
+      }
+
       .title {
         font-size: 54px;
+
+        @include screen.lg {
+          font-size: 48px;
+        }
       }
 
       .boxes {
         display: flex;
         justify-content: space-between;
 
+        @include screen.sm {
+          display: none;
+        }
+
         h1 {
           font-size: 36px;
+
+          @include screen.lg {
+            font-size: 32 px;
+          }
         }
 
         h2 {
@@ -38,10 +60,18 @@
     background-color: #ff7625;
     position: relative;
 
+    @include screen.md {
+      display: none;
+    }
+
     img {
       width: 115%;
       position: absolute;
       right: 0;
+
+      @include screen.lg {
+        width: 105%;
+      }
     }
   }
 }

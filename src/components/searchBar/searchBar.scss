@@ -1,3 +1,5 @@
+@use "../../responsive" as screen;
+
 .search-bar {
   .type {
     button {
@@ -32,13 +34,33 @@
     height: 64px;
     gap: 5px;
 
+    @include screen.sm {
+      flex-direction: column;
+      border: none;
+    }
+
     input {
       border: none;
       padding: 0px 10px;
       width: 150px;
 
+      @include screen.lg {
+        padding: 0px 5px;
+        width: 100px;
+      }
+
+      @include screen.sm {
+        width: auto;
+        padding: 20px;
+        border: 1px solid grey;
+      }
+
       &:first-child {
         width: 300px;
+
+        @include screen.sm {
+          width: auto;
+        }
       }
     }
 
@@ -47,6 +69,10 @@
       border: none;
       flex: 1;
       cursor: pointer;
+
+      @include screen.sm {
+        padding: 10px;
+      }
     }
   }
 }
