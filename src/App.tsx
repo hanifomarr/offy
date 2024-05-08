@@ -1,19 +1,22 @@
-import Navbar from "./components/navbar/Navbar";
-import Home from "./pages/home/home";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import "./layout.scss";
+import Layout from "./pages/layout/layout";
+import Home from "./pages/home/home";
+import OfficeList from "./pages/officeList/officeList";
 
 function App() {
-  return (
-    <div className="layout">
-      <div className="navbar">
-        <Navbar />
-      </div>
-      <div className="content">
-        <Home />
-      </div>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "list", element: <OfficeList /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

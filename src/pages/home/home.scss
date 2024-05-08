@@ -29,6 +29,9 @@
         @include screen.lg {
           font-size: 48px;
         }
+        @include screen.sm {
+          font-size: 40px;
+        }
       }
 
       .boxes {

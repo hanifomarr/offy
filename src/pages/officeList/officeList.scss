@@ -1,0 +1,9 @@
+.office-list {
+  display: flex;
+  .list-container {
+    flex: 3;
+  }
+  .map-container {
+    flex: 2;
+  }
+}
