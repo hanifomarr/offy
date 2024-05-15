@@ -8,6 +8,7 @@ import {
   Projector,
 } from "lucide-react";
 import "./card.scss";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   img: string;
@@ -16,6 +17,7 @@ interface CardProps {
   bedroom: number;
   bathroom: number;
   address: string;
+  id: number;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -25,6 +27,7 @@ const Card: React.FC<CardProps> = ({
   bedroom,
   bathroom,
   address,
+  id,
 }) => {
   return (
     <div className="card">
@@ -32,7 +35,9 @@ const Card: React.FC<CardProps> = ({
         <img src={img} alt={title} />
       </div>
       <div className="text-container">
-        <h1>{title}</h1>
+        <Link to={`${id}`}>
+          <h1>{title}</h1>
+        </Link>
         <div className="address">
           <MapPin />
           <span>{address}</span>
