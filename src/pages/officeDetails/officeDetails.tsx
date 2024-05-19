@@ -2,13 +2,14 @@ import { MapPin } from "lucide-react";
 import { singlePostData, userData } from "../../dummy";
 
 import "./officeDetails.scss";
+import Slider from "../../components/slider/Slider";
 
 const OfficeDetails = () => {
   return (
     <div className="office-details">
       <div className="details">
         <div className="wrapper">
-          <div className="slider">Slider</div>
+          <Slider />
           <div className="info">
             <div className="top">
               <div className="post">
