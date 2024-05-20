@@ -2,38 +2,37 @@ import { useState } from "react";
 
 import { Building2, Menu } from "lucide-react";
 import "./navbar.scss";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
     <nav>
       <div className="left">
-        <a className="logo">
+        <Link to={"/"} className="logo">
           <Building2 size={30} />
           <span>Whitespace Hub</span>
-        </a>
-        <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Contacts</a>
-        <a href="/">Agents</a>
+        </Link>
+        <Link to="/">Home</Link>
+        <Link to="list">List</Link>
+        <Link to="/">Contacts</Link>
       </div>
       <div className="right">
-        <a href="/">Sign In</a>
-        <a href="/" className="register">
+        <Link to="/">Sign In</Link>
+        <Link to="/" className="register">
           Sign Up
-        </a>
+        </Link>
         <Menu
           className="menu-icon"
           size={50}
           onClick={() => setOpen((prev) => !prev)}
         />
         <div className={open ? "menu-list active" : "menu-list"}>
-          <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Contacts</a>
-          <a href="/">Agents</a>
-          <a href="/">Sign In</a>
-          <a href="/">Sign Up</a>
+          <Link to="/">Home</Link>
+          <Link to="list">List</Link>
+          <Link to="/">Contacts</Link>
+          <Link to="/">Sign In</Link>
+          <Link to="/">Sign Up</Link>
         </div>
       </div>
     </nav>
