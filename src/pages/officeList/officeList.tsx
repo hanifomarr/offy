@@ -1,5 +1,6 @@
 import Card from "../../components/card/Card";
 import Filter from "../../components/filter/Filter";
+import Map from "../../components/map/Map";
 import { listData } from "../../dummy";
 
 import "./officeList.scss";
@@ -15,7 +16,9 @@ const OfficeList = () => {
           ))}
         </div>
       </div>
-      <div className="map-container">Maps</div>
+      <div className="map-container">
+        <Map />
+      </div>
     </div>
   );
 };
