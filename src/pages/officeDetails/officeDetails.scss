@@ -9,9 +9,6 @@
     .wrapper {
       padding-right: 50px;
 
-      .slider {
-      }
-
       .info {
         margin-top: 50px;
         .top {
@@ -73,5 +70,55 @@
   }
   .features {
     flex: 2;
+    background-color: whitesmoke;
+
+    .wrapper {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h1 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .info {
+          h2 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+
+      .general-container {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .size-container {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      .location-container {
+        height: 100px;
+      }
+    }
   }
 }
