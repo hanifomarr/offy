@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Layout from "./pages/layout/layout";
+import { Layout, RequireAuth } from "./pages/layout/layout";
 import Home from "./pages/home/home";
 import OfficeList from "./pages/officeList/officeList";
 import OfficeDetails from "./pages/officeDetails/officeDetails";
@@ -24,8 +24,12 @@ function App() {
         },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
-        { path: "profile", element: <Profile /> },
       ],
+    },
+    {
+      path: "/",
+      element: <RequireAuth />,
+      children: [{ path: "profile", element: <Profile /> }],
     },
   ]);
 
