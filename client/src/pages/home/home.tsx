@@ -1,7 +1,10 @@
 import SearchBar from "../../components/searchBar/SearchBar";
+import { useAuth } from "../../context/authContext";
 import "./home.scss";
 
 const Home = () => {
+  const { currentUser } = useAuth();
+  console.log("🚀 ~ Home ~ currentUser:", currentUser);
   return (
     <div className="home">
       <div className="text-container">

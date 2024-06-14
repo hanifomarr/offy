@@ -1,10 +1,16 @@
-import "./login.scss";
-import apiRequest from "../../libs/apiRequest";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import apiRequest from "../../libs/apiRequest";
+import { useAuth } from "../../context/authContext";
+import "./login.scss";
 
 const Login = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { updateUser } = useAuth();
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +26,8 @@ const Login = () => {
         password,
       });
 
-      console.log(res.data);
+      updateUser(res.data);
+      navigate("/");
     } catch (error) {
       setError("An error occurred");
     } finally {

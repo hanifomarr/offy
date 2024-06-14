@@ -6,6 +6,7 @@ import OfficeList from "./pages/officeList/officeList";
 import OfficeDetails from "./pages/officeDetails/officeDetails";
 import Register from "./pages/register/register";
 import Login from "./pages/login/login";
+import Profile from "./pages/profile/profile";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,10 +15,16 @@ function App() {
       element: <Layout />,
       children: [
         { index: true, element: <Home /> },
-        { path: "list", element: <OfficeList /> },
-        { path: "list/:office_id", element: <OfficeDetails /> },
+        {
+          path: "list",
+          children: [
+            { index: true, element: <OfficeList /> },
+            { path: ":office_id", element: <OfficeDetails /> },
+          ],
+        },
         { path: "login", element: <Login /> },
         { path: "register", element: <Register /> },
+        { path: "profile", element: <Profile /> },
       ],
     },
   ]);
