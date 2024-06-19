@@ -20,9 +20,9 @@ const Layout = () => {
 const RequireAuth = () => {
   const { currentUser } = useAuth();
 
-  if (!currentUser) return <Navigate to={"/login"} />;
-
-  return (
+  return !currentUser ? (
+    <Navigate to={"/login"} />
+  ) : (
     <div className="layout">
       <div className="navbar">
         <Navbar />

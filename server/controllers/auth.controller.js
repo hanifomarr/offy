@@ -66,7 +66,7 @@ export const login = async (req, res) => {
       .json(userInfo);
   } catch (error) {
     console.log("error", error);
-    res.status(500).json({ message: "Failed to created user" });
+    res.status(500).json({ message: "Failed to login user" });
   }
 };
 

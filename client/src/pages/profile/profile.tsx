@@ -3,7 +3,7 @@ import { useAuth } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const { updateUser } = useAuth();
+  const { currentUser, updateUser } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -17,6 +17,7 @@ const Profile = () => {
   };
   return (
     <div>
+      <h1>{currentUser?.id}</h1>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
