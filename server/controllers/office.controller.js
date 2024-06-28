@@ -11,7 +11,18 @@ export const getOffices = async (req, res) => {
 export const getOfficeDetails = async (req, res) => {
   const { id } = req.params;
   try {
-    const officeDetails = await prisma.office.findUnique({ where: { id } });
+    const officeDetails = await prisma.office.findUnique({
+      where: { id },
+      include: {
+        officeDetail: true,
+        user: {
+          select: {
+            username: true,
+            avatar: true,
+          },
+        },
+      },
+    });
     res.status(200).json(officeDetails);
   } catch (error) {
     res.status(500).json({ message: "Not Okay" });
@@ -23,12 +34,16 @@ export const addOffice = async (req, res) => {
   try {
     const newOffice = await prisma.office.create({
       data: {
-        ...body,
+        ...body.officeData,
         userId: tokenUserId,
+        officeDetail: {
+          create: body.officeDetail,
+        },
       },
     });
     res.status(200).json(newOffice);
   } catch (error) {
+    console.log("🚀 ~ addOffice ~ error:", error);
     res.status(500).json({ message: "Not Okay" });
   }
 };
