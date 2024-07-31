@@ -1,0 +1,61 @@
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$white-color: #ffffff;
+$light-gray: #f8f9fa;
+$dark-gray: #343a40;
+
+@mixin button-styles($bg-color, $text-color, $border-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid $border-color;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  &-primary {
+    @include button-styles($primary-color, $white-color, $primary-color);
+  }
+  &-secondary {
+    @include button-styles($secondary-color, $white-color, $secondary-color);
+  }
+
+  &-success {
+    @include button-styles($success-color, $white-color, $success-color);
+  }
+
+  &-danger {
+    @include button-styles($danger-color, $white-color, $danger-color);
+  }
+
+  &-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  &-medium {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  &-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+  }
+}
