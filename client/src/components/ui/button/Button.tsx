@@ -1,8 +1,6 @@
-import "./button.scss";
-
 interface ButtonProps {
   children: React.ReactNode;
-  variant: "primary" | "secondary" | "success" | "danger";
+  variant?: "primary" | "secondary" | "success" | "danger";
   size: "small" | "medium" | "large";
   onClick: () => void;
   disabled?: boolean;

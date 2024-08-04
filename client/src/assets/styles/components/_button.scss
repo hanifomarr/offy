@@ -1,10 +1,4 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$danger-color: #dc3545;
-$white-color: #ffffff;
-$light-gray: #f8f9fa;
-$dark-gray: #343a40;
+@use "../base/variables" as *;
 
 @mixin button-styles($bg-color, $text-color, $border-color) {
   background-color: $bg-color;
@@ -16,14 +10,16 @@ $dark-gray: #343a40;
 }
 
 .btn {
+  border: none;
+  cursor: pointer;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border-radius: 4px;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   text-align: center;
   text-decoration: none;
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.65;
@@ -32,6 +28,7 @@ $dark-gray: #343a40;
   &-primary {
     @include button-styles($primary-color, $white-color, $primary-color);
   }
+
   &-secondary {
     @include button-styles($secondary-color, $white-color, $secondary-color);
   }
