@@ -1,0 +1,83 @@
+@use "../base/variables" as *;
+@use "../utilities/responsive" as screen;
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+
+  &__logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: $dark-gray;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include screen.md {
+      display: none;
+    }
+
+    .navbar__item {
+      margin: 0 15px;
+
+      .navbar__link {
+        text-decoration: none;
+        color: #000000;
+        font-size: 16px;
+        position: relative;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+
+      &--active a {
+        color: $primary-color;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 50%;
+          height: 2px;
+          background-color: $primary-color;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -5px;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include screen.md {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    @include screen.md {
+      display: inline;
+    }
+  }
+}
