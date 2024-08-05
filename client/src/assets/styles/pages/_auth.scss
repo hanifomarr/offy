@@ -1,6 +1,10 @@
 @use "../base/variables" as *;
 
-.login {
+$login-image: url("./login.jpg");
+$signup-image: url("./register.jpg");
+
+.login,
+.register {
   display: flex;
   height: 100%;
   background-color: $white-color;
@@ -78,8 +82,16 @@
   &__img-container {
     flex: 2;
     background-color: $secondary-color;
-    background: url("./login.jpg") center/cover no-repeat;
+    background: center/cover no-repeat;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
+  }
+
+  &.login &__img-container {
+    background-image: $login-image;
+  }
+
+  &.register &__img-container {
+    background-image: $signup-image;
   }
 }

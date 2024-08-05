@@ -1,61 +1,52 @@
-import "./register.scss";
-import apiRequest from "../../libs/apiRequest";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import Button from "../../components/ui/button/Button";
 
 const Register = () => {
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const navigate = useNavigate();
-
-  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get("username");
-    const email = formData.get("email");
-    const password = formData.get("password");
-
-    try {
-      const res = await apiRequest.post("/auth/register", {
-        username,
-        email,
-        password,
-      });
-
-      console.log(res.data);
-      navigate("/login");
-    } catch (error) {
-      setError("An error occurred");
-    } finally {
-      setIsLoading(false);
-    }
-  };
   return (
     <div className="register">
-      <div className="form-container">
-        <h1>Create an account</h1>
-        <form onSubmit={handleRegister}>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
-          />
-          <input type="email" name="email" id="email" placeholder="Email" />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-          />
-          <button disabled={isLoading}>Register</button>
-          {error && <span>{error}</span>}
+      <div className="register__form">
+        <div className="register__form__header">
+          <h2>Create Account</h2>
+          <p>Fill in your details to create an account</p>
+        </div>
+        <form className="register__form__body">
+          <div className="inputGroup">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+          <div className="inputGroup">
+            <div className="flex items-center">
+              <label htmlFor="password">Password</label>
+            </div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <div className="inputGroup">
+            <div className="flex items-center">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+            </div>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm your password"
+            />
+          </div>
+          <Button variant="primary">Sign Up</Button>
         </form>
+        <div className="register__form__footer">
+          <p>
+            Already have an account?
+            <Link to={"/login"} className="link">
+              Login
+            </Link>
+          </p>
+        </div>
       </div>
-      <div className="img-container"></div>
+      <div className="register__img-container"></div>
     </div>
   );
 };
