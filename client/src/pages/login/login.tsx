@@ -1,61 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import apiRequest from "../../libs/apiRequest";
-import { useAuth } from "../../context/authContext";
-import "./login.scss";
+import Button from "../../components/ui/button/Button";
 
 const Login = () => {
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { updateUser } = useAuth();
-
-  const navigate = useNavigate();
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError("");
-    setIsLoading(true);
-    const formData = new FormData(e.currentTarget);
-    const username = formData.get("username");
-    const password = formData.get("password");
-
-    try {
-      const res = await apiRequest.post("/auth/login", {
-        username,
-        password,
-      });
-
-      updateUser(res.data);
-      navigate("/");
-    } catch (error) {
-      setError("An error occurred");
-    } finally {
-      setIsLoading(false);
-    }
-  };
   return (
     <div className="login">
-      <div className="form-container">
-        <h1>Login</h1>
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Username"
-          />
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-          />
-          <button disabled={isLoading}>Login</button>
-          {error && <span>{error}</span>}
+      <div className="login__form">
+        <div className="login__form__header">
+          <h2>Welcome Back</h2>
+          <p>Enter your email below to login to your account</p>
+        </div>
+        <form className="login__form__body">
+          <div className="inputGroup">
+            <label htmlFor="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+          <div className="inputGroup">
+            <div className="flex items-center">
+              <label htmlFor="password">Password</label>
+            </div>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+            />
+          </div>
+          <Button variant="primary">Login</Button>
         </form>
+        <div className="login__form__footer">
+          <p>
+            Don't have an account?
+            <Link to={"/register"} className="link">
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
-      <div className="img-container"></div>
+      <div className="login__img-container"></div>
     </div>
   );
 };

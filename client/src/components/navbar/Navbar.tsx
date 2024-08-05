@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Building2, Menu } from "lucide-react";
 
 import Button from "../ui/button/Button";
@@ -6,6 +6,7 @@ import navigationConfig from "../../config/navigationConfig";
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <nav className="navbar" aria-label="Main Navigation">
@@ -32,12 +33,12 @@ const Navbar = () => {
       <div className="navbar__actions">
         <Button
           variant="primary"
-          onClick={() => console.log("test")}
+          onClick={() => navigate("/register")}
           size="medium"
         >
           Rent your space
         </Button>
-        <Button onClick={() => console.log("test")} size="medium">
+        <Button onClick={() => navigate("/login")} size="medium">
           Sign In
         </Button>
       </div>

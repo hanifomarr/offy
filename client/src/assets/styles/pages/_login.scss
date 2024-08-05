@@ -1,0 +1,85 @@
+@use "../base/variables" as *;
+
+.login {
+  display: flex;
+  height: 100%;
+  background-color: $white-color;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  &__form {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 25px;
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+
+      h2 {
+        font-size: 30px;
+        color: $text-color;
+      }
+
+      p {
+        font-size: 14px;
+        color: $text-color;
+      }
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 50%;
+
+      .inputGroup {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        input {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          width: 100%;
+          box-sizing: border-box;
+          font-size: 14px;
+
+          &:focus {
+            border-color: $primary-color;
+            outline: none;
+            box-shadow: 0 0 5px rgba($primary-color, 0.5);
+          }
+        }
+      }
+    }
+
+    &__footer {
+      text-align: center;
+      margin-top: 10px;
+      .link {
+        color: $primary-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        margin-left: 5px;
+        &:hover {
+          color: darken($primary-color, 10%);
+        }
+      }
+    }
+  }
+
+  &__img-container {
+    flex: 2;
+    background-color: $secondary-color;
+    background: url("./login.jpg") center/cover no-repeat;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+}
