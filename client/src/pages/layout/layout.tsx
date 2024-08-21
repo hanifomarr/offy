@@ -7,7 +7,7 @@ import "./layout.scss";
 const Layout = () => {
   return (
     <div className="layout">
-      <div className="navbar">
+      <div>
         <Navbar />
       </div>
       <div className="content">

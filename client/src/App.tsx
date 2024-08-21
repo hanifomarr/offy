@@ -8,6 +8,8 @@ import Register from "./pages/register/register";
 import Login from "./pages/login/login";
 import Profile from "./pages/profile/profile";
 
+import "./assets/styles/main.scss";
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -16,7 +18,7 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         {
-          path: "list",
+          path: "space",
           children: [
             { index: true, element: <OfficeList /> },
             { path: ":office_id", element: <OfficeDetails /> },
